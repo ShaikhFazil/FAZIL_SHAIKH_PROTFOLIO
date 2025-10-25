@@ -35,7 +35,7 @@ const navItems = [
   {
     id: 5,
     name: "Resume",
-    path: "/FAZIL_SHAIKH_PROTFOLIO.pdf",
+    path: "/FAZIL_SHAIKH_RESUME.pdf",
     icon: File,
     isDownload: true,
   },
