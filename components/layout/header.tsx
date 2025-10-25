@@ -14,7 +14,7 @@ const navItems = [
   {
     id: 5,
     name: "Resume",
-    path: "/Fazil_Shaikh_Resume.pdf", // Make sure this file is in /public folder
+    path: "/FAZIL_SHAIKH_RESUME.pdf",
     icon: File,
     isDownload: true,
   },
@@ -44,7 +44,7 @@ export default function Header() {
               <a
                 key={item.id}
                 href={item.path}
-                download="Fazil_Shaikh_Resume.pdf" // Specify downloaded filename
+                download="FAZIL_SHAIKH_RESUME.pdf"
                 className={cn(
                   "relative h-full w-fit md:min-w-40 border-x flex items-center justify-start gap-2 text-muted-foreground hover:bg-background px-4",
                   item.isRight && "ml-auto"
