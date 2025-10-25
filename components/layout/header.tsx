@@ -7,35 +7,14 @@ import Image from "next/image";
 import logo from "@/public/imgs/logo.png";
 
 const navItems = [
-  {
-    id: 1,
-    name: "Home.tsx",
-    path: "#home",
-    icon: Home,
-  },
-  {
-    id: 2,
-    name: "About.tsx",
-    path: "#about",
-    icon: User,
-  },
-  {
-    id: 3,
-    name: "Projects.tsx",
-    path: "#projects",
-    icon: File,
-  },
-  {
-    id: 4,
-    name: "Contact-Me.tsx",
-    path: "#contact",
-    icon: LucideSend,
-    isRight: true,
-  },
+  { id: 1, name: "Home.tsx", path: "#home", icon: Home },
+  { id: 2, name: "About.tsx", path: "#about", icon: User },
+  { id: 3, name: "Projects.tsx", path: "#projects", icon: File },
+  { id: 4, name: "Contact-Me.tsx", path: "#contact", icon: LucideSend, isRight: true },
   {
     id: 5,
     name: "Resume",
-    path: "/Fazil_Shaikh_Resume.pdf",
+    path: "/Fazil_Shaikh_Resume.pdf", // Make sure this file is in /public folder
     icon: File,
     isDownload: true,
   },
@@ -55,18 +34,17 @@ export default function Header() {
           className="object-contain"
         />
       </div>
-      <div className="flex items-center size-full">
+      <div className="flex items-center flex-grow">
         {navItems.map((item) => {
-          const isActive =
-            item.path === hash || (item.path === "#home" && hash === "");
+          const isActive = item.path === hash || (item.path === "#home" && hash === "");
 
-          // If it's a download link
+          // Render download link for Resume
           if (item.isDownload) {
             return (
               <a
                 key={item.id}
                 href={item.path}
-                download
+                download="Fazil_Shaikh_Resume.pdf" // Specify downloaded filename
                 className={cn(
                   "relative h-full w-fit md:min-w-40 border-x flex items-center justify-start gap-2 text-muted-foreground hover:bg-background px-4",
                   item.isRight && "ml-auto"
@@ -78,6 +56,7 @@ export default function Header() {
             );
           }
 
+          // Regular hash links
           return (
             <Link
               key={item.id}
@@ -90,7 +69,7 @@ export default function Header() {
               )}
             >
               <item.icon size={14} className="text-primary-foreground" />
-              <span className="hidden md:inline">{item.name}</span>{" "}
+              <span className="hidden md:inline">{item.name}</span>
               {isActive && <BorderActive />}
             </Link>
           );
