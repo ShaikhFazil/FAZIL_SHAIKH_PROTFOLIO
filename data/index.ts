@@ -36,25 +36,25 @@ const data = {
           "Implemented a robust UI & CMS to manage SEO data, blogs, hostels, and influencer collaborations seamlessly, empowering the marketing team with full control over dynamic content.\n\nTechnologies Used: React.js, Node.js, GraphQL, MongoDB, Tailwind CSS.",
       },      
       {
-        id: 1,
+        id: 2,
         title: "Shriram Finance Website",
         description:
           "Implemented interactive and user-friendly bank statement forms, enhancing data input and validation for users. This improved the overall usability and efficiency of the website in line with financial compliance needs.\n\nTechnologies Used: React.js, JavaScript, Form Validation, CSS.",
       },
       {
-        id: 2,
+        id: 3,
         title: "API Monitoring and Management Portal",
         description:
           "Developed and integrated features to allow real-time API monitoring. Built a custom verification button to check API statuses, enabling prompt issue detection and resolution.\n\nTechnologies Used: React.js, Node.js, REST APIs.",
       },
       {
-        id: 3,
+        id: 4,
         title: "AWS Cost Management Module",
         description:
           "Contributed to a comprehensive cost analysis tool inspired by AWS cost reporting. Enabled filtering and viewing of cost data by month and date to provide clear insights.\n\nTechnologies Used: React.js, Chart.js, Node.js, MongoDB.",
       },
       {
-        id: 4,
+        id: 5,
         title: "Sahayata24x7 – E-commerce Health Platform",
         description:
           "Built core features for a health-based e-commerce platform allowing users to select chemists, order medicines, and book doctor appointments seamlessly.\n\nTechnologies Used: React.js, Node.js, MongoDB, Express, Tailwind CSS.",
