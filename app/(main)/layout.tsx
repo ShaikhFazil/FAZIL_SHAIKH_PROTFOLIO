@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/resizable';
 import Sidebar from '@/components/layout/sidebar';
 
+
 const LinesNumber = dynamic(() => import('@/components/layout/lines-numbers'), {
   ssr: false,
 });

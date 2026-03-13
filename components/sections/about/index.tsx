@@ -3,7 +3,7 @@ import useCurSection from "@/hooks/use-cur-section";
 import Image from "next/image";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import agakadela from "@/public/imgs/fazil.jpeg";
+import agakadela from "@/public/imgs/fazil.png";
 
 export default function AboutSection() {
   const ref = useRef(null);
@@ -35,7 +35,7 @@ export default function AboutSection() {
             className="rounded-full size-[200px] bg-gradient-primary p-0.5"
           >
             <Image
-              className="size-full rounded-full grayscale-0 object-cover"
+              className="size-full rounded-full grayscale-0 object-cover object-[center_35%]"
               width={900}
               height={300}
               alt="about profile image"

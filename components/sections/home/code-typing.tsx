@@ -11,20 +11,33 @@ const codeSnippet = `// Welcome to my Portfolio! 🚀
 import { NextDeveloper } from 'fazilShaikh';
 
 function createAmazingWebApp() {
-  const mySkills = {
-    frontend: ["JavaScript", "TypeScript", "React", "Next.js"],
-    backend: ["Node.js", "Express", "RESTful APIs", "GraphQL"],
+ const mySkills = {
+    frontend: ["JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"], 
+
+    backend: ["Node.js", "Express.js", "RESTful APIs", "GraphQL"],
+
     stateManagement: ["Redux", "Zustand", "TanStack Query"],
+
     database: ["MongoDB", "PostgreSQL"],
+
+    aiEngineering: ["Generative AI", "LLMs", "RAG (Retrieval Augmented Generation)", "AI Chatbots", "Vector Databases"],
+
+    tools: ["Git", "Git Lab", "Docker", "Vercel","Postman"]
   };
-  
 
   return {
-    message: "Let's work together!",
-    services: ["Website Development"],
+    developer: "Fazil Shaikh",
+    role: "Full Stack Developer & AI Engineer",
+    message: "Building modern web apps and AI-powered products.",
+    services: [
+      "Full Stack Web Development",
+      "AI Chatbot Development",
+      "RAG Applications",
+      "Website Development"
+    ],
     contact: "Scroll down to connect →"
   };
-};`;
+}`;
 
 export default function CodeTyping() {
   const [displayedLines, setDisplayedLines] = useState<string[]>(

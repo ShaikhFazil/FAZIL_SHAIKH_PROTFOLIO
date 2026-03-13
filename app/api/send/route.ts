@@ -1,32 +1,59 @@
-// /app/api/send/route.ts
 import { NextResponse } from "next/server";
+import * as XLSX from "xlsx";
+import fs from "fs";
+import path from "path";
 
-const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycby6L7Oa3y6Mm3VgvSdvs-wgOtqBfV4doJt6cswbO9mUdjIM422g4mAT0f3xMFl-FMc1Jg/exec";
+type ContactData = {
+  from_name: string;
+  from_email: string;
+  message: string;
+};
 
-export async function POST(request: Request) {
+type ExcelRow = {
+  Name: string;
+  Email: string;
+  Message: string;
+  Date: string;
+};
+
+export async function POST(req: Request) {
   try {
-    const body = await request.json();
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: body.from_name,
-        email: body.from_email,
-        message: body.message,
-      }),
+    const body: ContactData = await req.json();
+
+    const filePath = path.join(process.cwd(), "contact-data.xlsx");
+
+    let workbook: XLSX.WorkBook;
+    let worksheet: XLSX.WorkSheet;
+    let data: ExcelRow[] = [];
+
+    // if file exists read existing data
+    if (fs.existsSync(filePath)) {
+      workbook = XLSX.readFile(filePath);
+      worksheet = workbook.Sheets["Sheet1"];
+      data = XLSX.utils.sheet_to_json<ExcelRow>(worksheet);
+    }
+
+    // add new row
+    data.push({
+      Name: body.from_name,
+      Email: body.from_email,
+      Message: body.message,
+      Date: new Date().toLocaleString(),
     });
 
-    if (!response.ok) {
-      const text = await response.text();
-      throw new Error(`Google Script error: ${text}`);
-    }
+    // create sheet
+    worksheet = XLSX.utils.json_to_sheet(data);
+    workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+
+    XLSX.writeFile(workbook, filePath);
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error(error);
+    console.error("Error saving Excel:", error);
+
     return NextResponse.json(
-      { error: "Failed to save to Google Sheet" },
+      { error: "Failed to save data" },
       { status: 500 }
     );
   }

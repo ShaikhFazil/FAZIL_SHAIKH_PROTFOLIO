@@ -29,8 +29,8 @@ export default function Header() {
         <Image
           src={logo}
           alt="AK Logo"
-          width={24}
-          height={24}
+          width={60}
+          height={60}
           className="object-contain"
         />
       </div>
